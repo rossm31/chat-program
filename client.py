@@ -10,10 +10,13 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Connect as client to selected server
 # on a specified port
-s.connect(('130.159.123.32',5000))
+s.connect(('130.159.123.25',5000))
 
 # Create alias for client
 alias = input("Name: ")
+
+# Tell server client has connected
+s.send((alias + " has connected.").encode("utf-8"))
 
 # Let client type message
 message = input(alias + "->")
